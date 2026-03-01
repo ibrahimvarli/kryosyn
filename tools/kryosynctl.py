@@ -77,13 +77,24 @@ def resolve_packages(base: Path, profile_id: str):
     paths = get_paths(base)
     profiles_cfg = load_json(paths["profiles"])
     packages_cfg = load_json(paths["packages"])
+    profiles = profiles_cfg.get("profiles", [])
     profile = None
-    for item in profiles_cfg.get("profiles", []):
+    profile_id = profile_id.strip()
+    for item in profiles:
         if item.get("id") == profile_id:
             profile = item
             break
     if profile is None:
-        raise ValueError(f"profil_bulunamadi:{profile_id}")
+        candidates = [item.get("id") for item in profiles if item.get("id")]
+        prefix_matches = [pid for pid in candidates if pid.startswith(profile_id)]
+        if len(prefix_matches) == 1:
+            profile = next(item for item in profiles if item.get("id") == prefix_matches[0])
+        else:
+            available = ",".join(candidates)
+            hint = ",".join(prefix_matches)
+            if hint:
+                raise ValueError(f"profil_bulunamadi:{profile_id}:oneriler:{hint}:mevcut:{available}")
+            raise ValueError(f"profil_bulunamadi:{profile_id}:mevcut:{available}")
     groups = packages_cfg.get("groups", {})
     resolved = []
     for group in profile.get("groups", []):
