@@ -1,0 +1,370 @@
+{
+  "generatedAt": "2026-03-01T09:35:07.786030+00:00",
+  "os": {
+    "name": "Kryosyn OS",
+    "edition": "community",
+    "base": "debian",
+    "architecture": "amd64",
+    "kernel": {
+      "series": "lts",
+      "version": "6.6",
+      "flavors": [
+        "lts",
+        "hardened"
+      ],
+      "hardening": [
+        "lockdown",
+        "module-signing",
+        "secure-boot"
+      ]
+    },
+    "hardware": {
+      "firmware": true,
+      "wifi": true,
+      "gpu": true,
+      "hid": true
+    },
+    "desktop": {
+      "environment": "xfce",
+      "displayManager": "lightdm",
+      "theme": "kryosyn-dark",
+      "iconSet": "kryosyn"
+    },
+    "installer": {
+      "liveIso": true,
+      "persistence": true,
+      "firstBootWizard": "gnome-initial-setup",
+      "diskEncryption": "luks2",
+      "tpm": true
+    },
+    "defaults": {
+      "telemetry": false,
+      "secureBoot": true,
+      "diskEncryption": "luks2",
+      "autoUpdates": true
+    }
+  },
+  "channels": {
+    "channels": [
+      {
+        "name": "stable",
+        "cadence": "monthly",
+        "supportMonths": 24
+      },
+      {
+        "name": "testing",
+        "cadence": "weekly",
+        "supportMonths": 6
+      },
+      {
+        "name": "nightly",
+        "cadence": "daily",
+        "supportMonths": 1
+      }
+    ]
+  },
+  "profiles": {
+    "profiles": [
+      {
+        "id": "base",
+        "groups": [
+          "core",
+          "network",
+          "security",
+          "desktop",
+          "dev",
+          "hardware",
+          "installer",
+          "disk-security",
+          "ux",
+          "management"
+        ]
+      },
+      {
+        "id": "redteam",
+        "groups": [
+          "core",
+          "network",
+          "security",
+          "desktop",
+          "dev",
+          "hardware",
+          "installer",
+          "disk-security",
+          "ux",
+          "management",
+          "redteam"
+        ]
+      },
+      {
+        "id": "blueteam",
+        "groups": [
+          "core",
+          "network",
+          "security",
+          "desktop",
+          "dev",
+          "hardware",
+          "installer",
+          "disk-security",
+          "ux",
+          "management",
+          "blueteam"
+        ]
+      },
+      {
+        "id": "forensics",
+        "groups": [
+          "core",
+          "network",
+          "security",
+          "desktop",
+          "dev",
+          "hardware",
+          "installer",
+          "disk-security",
+          "ux",
+          "management",
+          "forensics"
+        ]
+      },
+      {
+        "id": "reverse",
+        "groups": [
+          "core",
+          "network",
+          "security",
+          "desktop",
+          "dev",
+          "hardware",
+          "installer",
+          "disk-security",
+          "ux",
+          "management",
+          "reverse"
+        ]
+      }
+    ]
+  },
+  "packages": {
+    "groups": {
+      "core": [
+        "linux-image-amd64",
+        "systemd",
+        "initramfs-tools",
+        "grub-efi-amd64",
+        "cryptsetup",
+        "lvm2",
+        "sudo",
+        "openssh-server",
+        "ca-certificates"
+      ],
+      "network": [
+        "network-manager",
+        "curl",
+        "wget",
+        "openssh-client",
+        "wireguard-tools",
+        "openvpn"
+      ],
+      "security": [
+        "ufw",
+        "apparmor",
+        "selinux-basics",
+        "selinux-policy-default",
+        "policycoreutils",
+        "auditd",
+        "fail2ban",
+        "gnupg",
+        "secure-delete"
+      ],
+      "desktop": [
+        "xfce4",
+        "xfce4-goodies",
+        "lightdm",
+        "lightdm-gtk-greeter"
+      ],
+      "dev": [
+        "build-essential",
+        "g++",
+        "cmake",
+        "make",
+        "pkg-config",
+        "python3",
+        "python3-pip",
+        "rustc",
+        "cargo",
+        "golang",
+        "ruby",
+        "ruby-dev",
+        "bundler",
+        "git"
+      ],
+      "hardware": [
+        "linux-headers-amd64",
+        "firmware-linux",
+        "firmware-linux-nonfree",
+        "firmware-misc-nonfree",
+        "firmware-iwlwifi",
+        "firmware-atheros",
+        "firmware-realtek",
+        "xserver-xorg-video-all",
+        "mesa-vulkan-drivers",
+        "mesa-utils",
+        "libinput-tools"
+      ],
+      "installer": [
+        "live-boot",
+        "live-config",
+        "live-tools",
+        "calamares",
+        "calamares-settings-debian"
+      ],
+      "disk-security": [
+        "cryptsetup",
+        "tpm2-tools",
+        "tpm2-tss",
+        "clevis",
+        "clevis-luks"
+      ],
+      "ux": [
+        "arc-theme",
+        "papirus-icon-theme",
+        "lightdm-gtk-greeter-settings",
+        "fonts-noto"
+      ],
+      "management": [
+        "cockpit",
+        "cockpit-networkmanager",
+        "cockpit-storaged"
+      ],
+      "redteam": [
+        "nmap",
+        "masscan",
+        "amass",
+        "burpsuite",
+        "zaproxy",
+        "nikto",
+        "metasploit-framework",
+        "exploitdb",
+        "sqlmap",
+        "hydra",
+        "john",
+        "hashcat",
+        "wireshark",
+        "aircrack-ng",
+        "bettercap"
+      ],
+      "blueteam": [
+        "suricata",
+        "zeek",
+        "osquery",
+        "logstash",
+        "kibana",
+        "elasticsearch"
+      ],
+      "forensics": [
+        "sleuthkit",
+        "autopsy",
+        "foremost",
+        "exiftool",
+        "dcfldd",
+        "volatility3"
+      ],
+      "reverse": [
+        "gdb",
+        "lldb",
+        "radare2",
+        "ghidra",
+        "binutils",
+        "strace",
+        "ltrace",
+        "frida-tools"
+      ]
+    }
+  },
+  "policies": {
+    "hardening": {
+      "sysctl": {
+        "kernel.kptr_restrict": "2",
+        "kernel.dmesg_restrict": "1",
+        "kernel.yama.ptrace_scope": "1",
+        "net.ipv4.conf.all.rp_filter": "1",
+        "net.ipv4.conf.default.rp_filter": "1",
+        "net.ipv4.tcp_syncookies": "1",
+        "net.ipv4.conf.all.accept_redirects": "0",
+        "net.ipv4.conf.default.accept_redirects": "0",
+        "net.ipv6.conf.all.accept_redirects": "0",
+        "net.ipv6.conf.default.accept_redirects": "0"
+      },
+      "modules": {
+        "blacklist": [
+          "firewire-core",
+          "usb-storage",
+          "bluetooth"
+        ]
+      }
+    },
+    "firewall": {
+      "defaultPolicy": "deny",
+      "allow": [
+        "22/tcp",
+        "80/tcp",
+        "443/tcp"
+      ]
+    },
+    "sandbox": {
+      "enabled": true,
+      "engine": "systemd",
+      "profiles": [
+        "networking",
+        "browser",
+        "analysis"
+      ]
+    }
+  },
+  "pipeline": {
+    "stages": [
+      {
+        "id": "bootstrap",
+        "inputs": [
+          "config/os.json",
+          "packages/groups.json"
+        ],
+        "outputs": [
+          "work/rootfs"
+        ]
+      },
+      {
+        "id": "configure",
+        "inputs": [
+          "config/profiles.json",
+          "security/policies.json"
+        ],
+        "outputs": [
+          "work/rootfs"
+        ]
+      },
+      {
+        "id": "assemble",
+        "inputs": [
+          "work/rootfs",
+          "config/channels.json"
+        ],
+        "outputs": [
+          "work/iso"
+        ]
+      },
+      {
+        "id": "sign",
+        "inputs": [
+          "work/iso"
+        ],
+        "outputs": [
+          "artifacts/kryosyn.iso",
+          "artifacts/kryosyn.iso.sig"
+        ]
+      }
+    ]
+  }
+}

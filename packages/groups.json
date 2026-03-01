@@ -1,0 +1,137 @@
+{
+  "groups": {
+    "core": [
+      "linux-image-amd64",
+      "systemd",
+      "initramfs-tools",
+      "grub-efi-amd64",
+      "cryptsetup",
+      "lvm2",
+      "sudo",
+      "openssh-server",
+      "ca-certificates"
+    ],
+    "network": [
+      "network-manager",
+      "curl",
+      "wget",
+      "openssh-client",
+      "wireguard-tools",
+      "openvpn"
+    ],
+    "security": [
+      "ufw",
+      "apparmor",
+      "selinux-basics",
+      "selinux-policy-default",
+      "policycoreutils",
+      "auditd",
+      "fail2ban",
+      "gnupg",
+      "secure-delete"
+    ],
+    "desktop": [
+      "xfce4",
+      "xfce4-goodies",
+      "lightdm",
+      "lightdm-gtk-greeter"
+    ],
+    "dev": [
+      "build-essential",
+      "g++",
+      "cmake",
+      "make",
+      "pkg-config",
+      "python3",
+      "python3-pip",
+      "rustc",
+      "cargo",
+      "golang",
+      "ruby",
+      "ruby-dev",
+      "bundler",
+      "git"
+    ],
+    "hardware": [
+      "linux-headers-amd64",
+      "firmware-linux",
+      "firmware-linux-nonfree",
+      "firmware-misc-nonfree",
+      "firmware-iwlwifi",
+      "firmware-atheros",
+      "firmware-realtek",
+      "xserver-xorg-video-all",
+      "mesa-vulkan-drivers",
+      "mesa-utils",
+      "libinput-tools"
+    ],
+    "installer": [
+      "live-boot",
+      "live-config",
+      "live-tools",
+      "calamares",
+      "calamares-settings-debian"
+    ],
+    "disk-security": [
+      "cryptsetup",
+      "tpm2-tools",
+      "tpm2-tss",
+      "clevis",
+      "clevis-luks"
+    ],
+    "ux": [
+      "arc-theme",
+      "papirus-icon-theme",
+      "lightdm-gtk-greeter-settings",
+      "fonts-noto"
+    ],
+    "management": [
+      "cockpit",
+      "cockpit-networkmanager",
+      "cockpit-storaged"
+    ],
+    "redteam": [
+      "nmap",
+      "masscan",
+      "amass",
+      "burpsuite",
+      "zaproxy",
+      "nikto",
+      "metasploit-framework",
+      "exploitdb",
+      "sqlmap",
+      "hydra",
+      "john",
+      "hashcat",
+      "wireshark",
+      "aircrack-ng",
+      "bettercap"
+    ],
+    "blueteam": [
+      "suricata",
+      "zeek",
+      "osquery",
+      "logstash",
+      "kibana",
+      "elasticsearch"
+    ],
+    "forensics": [
+      "sleuthkit",
+      "autopsy",
+      "foremost",
+      "exiftool",
+      "dcfldd",
+      "volatility3"
+    ],
+    "reverse": [
+      "gdb",
+      "lldb",
+      "radare2",
+      "ghidra",
+      "binutils",
+      "strace",
+      "ltrace",
+      "frida-tools"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "channels": [
+    {
+      "name": "stable",
+      "cadence": "monthly",
+      "supportMonths": 24
+    },
+    {
+      "name": "testing",
+      "cadence": "weekly",
+      "supportMonths": 6
+    },
+    {
+      "name": "nightly",
+      "cadence": "daily",
+      "supportMonths": 1
+    }
+  ]
+}

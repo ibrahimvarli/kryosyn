@@ -1,0 +1,44 @@
+{
+  "stages": [
+    {
+      "id": "bootstrap",
+      "inputs": [
+        "config/os.json",
+        "packages/groups.json"
+      ],
+      "outputs": [
+        "work/rootfs"
+      ]
+    },
+    {
+      "id": "configure",
+      "inputs": [
+        "config/profiles.json",
+        "security/policies.json"
+      ],
+      "outputs": [
+        "work/rootfs"
+      ]
+    },
+    {
+      "id": "assemble",
+      "inputs": [
+        "work/rootfs",
+        "config/channels.json"
+      ],
+      "outputs": [
+        "work/iso"
+      ]
+    },
+    {
+      "id": "sign",
+      "inputs": [
+        "work/iso"
+      ],
+      "outputs": [
+        "artifacts/kryosyn.iso",
+        "artifacts/kryosyn.iso.sig"
+      ]
+    }
+  ]
+}

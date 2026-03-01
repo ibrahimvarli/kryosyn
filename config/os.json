@@ -1,0 +1,44 @@
+{
+  "name": "Kryosyn OS",
+  "edition": "community",
+  "base": "debian",
+  "architecture": "amd64",
+  "kernel": {
+    "series": "lts",
+    "version": "6.6",
+    "flavors": [
+      "lts",
+      "hardened"
+    ],
+    "hardening": [
+      "lockdown",
+      "module-signing",
+      "secure-boot"
+    ]
+  },
+  "hardware": {
+    "firmware": true,
+    "wifi": true,
+    "gpu": true,
+    "hid": true
+  },
+  "desktop": {
+    "environment": "xfce",
+    "displayManager": "lightdm",
+    "theme": "kryosyn-dark",
+    "iconSet": "kryosyn"
+  },
+  "installer": {
+    "liveIso": true,
+    "persistence": true,
+    "firstBootWizard": "gnome-initial-setup",
+    "diskEncryption": "luks2",
+    "tpm": true
+  },
+  "defaults": {
+    "telemetry": false,
+    "secureBoot": true,
+    "diskEncryption": "luks2",
+    "autoUpdates": true
+  }
+}

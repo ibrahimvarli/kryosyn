@@ -1,0 +1,83 @@
+{
+  "profiles": [
+    {
+      "id": "base",
+      "groups": [
+        "core",
+        "network",
+        "security",
+        "desktop",
+        "dev",
+        "hardware",
+        "installer",
+        "disk-security",
+        "ux",
+        "management"
+      ]
+    },
+    {
+      "id": "redteam",
+      "groups": [
+        "core",
+        "network",
+        "security",
+        "desktop",
+        "dev",
+        "hardware",
+        "installer",
+        "disk-security",
+        "ux",
+        "management",
+        "redteam"
+      ]
+    },
+    {
+      "id": "blueteam",
+      "groups": [
+        "core",
+        "network",
+        "security",
+        "desktop",
+        "dev",
+        "hardware",
+        "installer",
+        "disk-security",
+        "ux",
+        "management",
+        "blueteam"
+      ]
+    },
+    {
+      "id": "forensics",
+      "groups": [
+        "core",
+        "network",
+        "security",
+        "desktop",
+        "dev",
+        "hardware",
+        "installer",
+        "disk-security",
+        "ux",
+        "management",
+        "forensics"
+      ]
+    },
+    {
+      "id": "reverse",
+      "groups": [
+        "core",
+        "network",
+        "security",
+        "desktop",
+        "dev",
+        "hardware",
+        "installer",
+        "disk-security",
+        "ux",
+        "management",
+        "reverse"
+      ]
+    }
+  ]
+}

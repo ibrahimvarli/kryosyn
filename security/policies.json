@@ -1,0 +1,40 @@
+{
+  "hardening": {
+    "sysctl": {
+      "kernel.kptr_restrict": "2",
+      "kernel.dmesg_restrict": "1",
+      "kernel.yama.ptrace_scope": "1",
+      "net.ipv4.conf.all.rp_filter": "1",
+      "net.ipv4.conf.default.rp_filter": "1",
+      "net.ipv4.tcp_syncookies": "1",
+      "net.ipv4.conf.all.accept_redirects": "0",
+      "net.ipv4.conf.default.accept_redirects": "0",
+      "net.ipv6.conf.all.accept_redirects": "0",
+      "net.ipv6.conf.default.accept_redirects": "0"
+    },
+    "modules": {
+      "blacklist": [
+        "firewire-core",
+        "usb-storage",
+        "bluetooth"
+      ]
+    }
+  },
+  "firewall": {
+    "defaultPolicy": "deny",
+    "allow": [
+      "22/tcp",
+      "80/tcp",
+      "443/tcp"
+    ]
+  },
+  "sandbox": {
+    "enabled": true,
+    "engine": "systemd",
+    "profiles": [
+      "networking",
+      "browser",
+      "analysis"
+    ]
+  }
+}
